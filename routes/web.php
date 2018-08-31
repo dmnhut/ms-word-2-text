@@ -10,8 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group(['prefix' => 'get-text'], function (){
-    Route::get('/doc/{fileName}', 'DocsController@doc');
-    Route::get('/docx/{fileName}', 'DocsController@docx');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::group(['prefix' => 'get-text'], function () {
+    Route::get('/doc/{fileName}', 'DocsController@doc')->name('doc');
+    Route::get('/docx/{fileName}', 'DocsController@docx')->name('docx');
 });
